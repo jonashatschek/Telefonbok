@@ -12,16 +12,13 @@ namespace Telefonbok.Controllers
 {
     public class KontaktController : Controller
     {
-        //GET: /Kontakt/
-        //private static IEnumerable<Kontakt> lagring;
-        //private ITelefonbokService _client;
+
         TelefonbokServiceClient _client = new TelefonbokServiceClient();
 
+        //GET: /Kontakt/
         public ActionResult Index()
         {
             
-            //_client.HämtaAllaKontakter();
-            //lagring = Lagring.HämtaAllaKontakter();
             List <Kontakt> resultatLista = new List<Kontakt>();
 
             foreach (var kontakt in _client.HämtaAllaKontakter().Elements("Kontakt"))
@@ -43,31 +40,44 @@ namespace Telefonbok.Controllers
         public ActionResult LaggTillKontakt(Kontakt kontakt)
         {
 
-            XElement returKontakt = kontakt.ToXml();
-            _client.LäggTillKontakt(returKontakt);
-            //_client.LäggTillKontakt(kontakt.ToXml());
-            //Lagring.LäggTillKontakt(kontakt);
+            XElement kontaktAttLäggaIn = kontakt.ToXml();
+            _client.LäggTillKontakt(kontaktAttLäggaIn);
+
             return RedirectToAction("LaggTillKontakt");
         }
 
         [HttpPost]
         public ActionResult AndraKontakt(Kontakt kontakt)
         {
-            Lagring.ÄndraKontakt(kontakt);
+            _client.ÄndraKontakt(kontakt.ToXml());
             return RedirectToAction("AndraKontakt");
             
         }
         
-        public ActionResult AndraKontakt()
-        {           
-            return View();
+        public ActionResult AndraKontakt(int id)
+        {
+            Kontakt kontakt = new Kontakt()
+            {
+                Id = id
+            };
+
+            return View(kontakt);
         }      
 
         [HttpPost]
         public ActionResult SokKontakter(string sökning)
         {
-           var kontakter =  Lagring.SökEfterKontakt(sökning);
-            return View(kontakter);
+
+            XElement sökn = new XElement("Sökning", sökning);
+
+            List<Kontakt> resultatLista = new List<Kontakt>();
+
+            foreach (var kontakt in _client.SökKontakter(sökn).Elements("Kontakt"))
+            {
+                resultatLista.Add(Kontakt.FromXml(kontakt));
+            }
+
+            return View(resultatLista);
         }
 
         public ActionResult SokKontakter()
@@ -79,7 +89,7 @@ namespace Telefonbok.Controllers
         [HttpGet]
         public ActionResult TaBortKontakt(Kontakt kontakt)
         {
-            Lagring.TaBortKontakt(kontakt.Id);
+            _client.TaBortKontakt(kontakt.Id);
             return RedirectToAction("Index");
         }
 

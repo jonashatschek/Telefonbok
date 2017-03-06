@@ -2,14 +2,8 @@
 <Kontakter>
   <Kontakt xmlns="">
     <Id>0</Id>
-    <Förnamn>d</Förnamn>
-    <Efternamn>d</Efternamn>
-    <Telefonnummer>d</Telefonnummer>
-  </Kontakt>
-  <Kontakt xmlns="">
-    <Id>0</Id>
-    <Förnamn>hej</Förnamn>
-    <Efternamn>hej</Efternamn>
-    <Telefonnummer>hej</Telefonnummer>
+    <Förnamn>Jonas</Förnamn>
+    <Efternamn>Hatschek</Efternamn>
+    <Telefonnummer>44</Telefonnummer>
   </Kontakt>
 </Kontakter>

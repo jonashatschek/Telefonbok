@@ -17,19 +17,18 @@ namespace Telefonbok.Models
 
         public XElement ToXml()
         {
-            XElement XMLTree = new XElement("Kontakt",
+            XElement contact = new XElement("Kontakt",
                 new XElement("Id", this.Id),
                 new XElement("Förnamn", this.Förnamn),
                 new XElement("Efternamn", this.Efternamn),
                 new XElement("Telefonnummer", this.Telefonnummer));
 
-            return XMLTree;
+            return contact;
         }
 
         public static Kontakt FromXml(XElement xml)
         {
-
-                Kontakt kontakt = new Kontakt()
+                Kontakt contact = new Kontakt()
                 {
                     Id = (int)xml.Element("Id"),
                     Förnamn = xml.Element("Förnamn").Value,
@@ -37,7 +36,7 @@ namespace Telefonbok.Models
                     Telefonnummer = xml.Element("Telefonnummer").Value
                 };
 
-                return kontakt;
+                return contact;
         }
     }
 

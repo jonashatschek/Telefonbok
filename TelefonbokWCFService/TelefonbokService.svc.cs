@@ -19,6 +19,7 @@ namespace TelefonbokWCFService
     {
         private string appDataFolder = HostingEnvironment.MapPath("/App_Data/");
         private XElement allaKontakter;
+        private static int id = 0;
 
         public TelefonbokService()
         {
@@ -33,7 +34,7 @@ namespace TelefonbokWCFService
                     new XElement("Kontakter");
 
                 rootNode.Save(appDataFolder+"telefonbok.xml");
-                allaKontakter = XElement.Load(appDataFolder + "telefobok.xml");
+                allaKontakter = XElement.Load(appDataFolder + "telefonbok.xml");
 
             }
 
@@ -44,32 +45,50 @@ namespace TelefonbokWCFService
             return allaKontakter;
         }
 
-        //Använd den XML som ges till metoden, ladda in hela XML-trädet
-        //lägg till noden och spara sedan ned XML-trädet.
 
         public void LäggTillKontakt(XElement kontakt)
         {
+            kontakt.Element("Id").Value = id.ToString();
             allaKontakter.Add(kontakt);
+            id++;
+            SaveAllaKontakter();
+        }
+        
+        public XElement SökKontakter(XElement kriterier)
+        {
+            var res = allaKontakter.Elements("Kontakt").Where(c => c.Element("Förnamn").Value.Contains(kriterier.Value)
+                                                            ||c.Element("Efternamn").Value.Contains(kriterier.Value)
+                                                            ||c.Element("Telefonnummer").Value.Contains(kriterier.Value));
+
+            XElement resultat = new XElement("Resultat", res);
+
+            return resultat;
+        }
+
+        public void TaBortKontakt(int id)
+        {
+            foreach (var kontakt in allaKontakter.Elements("Kontakt").Where(c => c.Element("Id").Value == id.ToString())
+            )
+            {
+                kontakt.Remove();
+            }
+
             SaveAllaKontakter();
         }
 
-        //Ladda in alla kontakter från XML-trädet och använd sedan LINQ för filtrering.
-        public XElement SökKontakter(XElement kriterier)
-        {
-            throw new NotImplementedException();
-        }
-
-        //Ladda in XML-trädet, leta upp rätt nod, ta bort noden och spara ner trädet
-        public void TaBortKontakt(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        //Ladda in XML-trädet, leta upp rätt nod, byt ut dess innehåll mot det nya innehållet
-        //(ReplaceContent) och spara sedan ned XML-trädet.
         public void ÄndraKontakt(XElement ändraKontakt)
         {
-            
+
+            foreach (var kontakt in allaKontakter.Elements("Kontakt").Where(c => c.Element("Id").Value == ändraKontakt.Element("Id").Value))
+            {
+                kontakt.Element("Förnamn").Value = ändraKontakt.Element("Förnamn").Value;
+                kontakt.Element("Efternamn").Value = ändraKontakt.Element("Efternamn").Value;
+                kontakt.Element("Telefonnummer").Value = ändraKontakt.Element("Telefonnummer").Value;
+
+            }
+
+            SaveAllaKontakter();
+
         }
 
         public void SaveAllaKontakter()
