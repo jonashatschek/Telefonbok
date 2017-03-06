@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="69104467-0983-4bfe-903f-218190d4b078" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55180/TelefonbokService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TelefonbokService.disco" MetadataType="Disco" ID="8fc594a9-bb15-45ef-8e26-bb84c65dd6c7" SourceId="1" SourceUrl="http://localhost:55180/TelefonbokService.svc?disco" />
+    <MetadataFile FileName="TelefonbokService.xsd" MetadataType="Schema" ID="66a88e2f-7e57-401e-bcc1-fbda07039447" SourceId="1" SourceUrl="http://localhost:55180/TelefonbokService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TelefonbokService1.xsd" MetadataType="Schema" ID="8805d22a-3e25-4aa3-8404-ad4256b83eb5" SourceId="1" SourceUrl="http://localhost:55180/TelefonbokService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TelefonbokService.wsdl" MetadataType="Wsdl" ID="c160c447-0b9b-4f12-8604-954e161620ab" SourceId="1" SourceUrl="http://localhost:55180/TelefonbokService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

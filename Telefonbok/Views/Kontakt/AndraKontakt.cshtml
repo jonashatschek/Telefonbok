@@ -1,0 +1,54 @@
+﻿@model Telefonbok.Models.Kontakt
+
+@{
+    ViewBag.Title = "AndraKontakt";
+}
+
+<h2>AndraKontakt</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Kontakt</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Förnamn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Förnamn)
+            @Html.ValidationMessageFor(model => model.Förnamn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Efternamn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Efternamn)
+            @Html.ValidationMessageFor(model => model.Efternamn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telefonnummer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefonnummer)
+            @Html.ValidationMessageFor(model => model.Telefonnummer)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

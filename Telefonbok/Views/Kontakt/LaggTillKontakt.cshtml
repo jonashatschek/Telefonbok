@@ -1,0 +1,55 @@
+﻿@model Telefonbok.Models.Kontakt
+
+@{
+    ViewBag.Title = "LaggTillKontakt";
+}
+
+<h2>LaggTillKontakt</h2>
+
+@using (Html.BeginForm(FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Kontakt</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Förnamn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Förnamn)
+            @Html.ValidationMessageFor(model => model.Förnamn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Efternamn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Efternamn)
+            @Html.ValidationMessageFor(model => model.Efternamn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telefonnummer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefonnummer)
+            @Html.ValidationMessageFor(model => model.Telefonnummer)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+        
+        <br/>
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

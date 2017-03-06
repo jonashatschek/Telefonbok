@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Telefonbok.Models.Kontakt>
+
+@{
+    ViewBag.Title = "SokKontakter";
+}
+
+<h2>SokKontakter</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.TextBox("sökning")
+        <p>
+            <input type="submit" value="Sök" />
+        </p>
+<p>
+    @Html.ActionLink("Start", "Index")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Förnamn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Efternamn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefonnummer)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Förnamn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Efternamn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefonnummer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "AndraKontakt", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "TaBortKontakt", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+}

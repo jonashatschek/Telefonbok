@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Telefonbok.Models.Kontakt>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add new contact", "LaggTillKontakt") |
+    @Html.ActionLink("Search", "SokKontakter")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Förnamn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Efternamn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefonnummer)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Förnamn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Efternamn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefonnummer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "AndraKontakt", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "TaBortKontakt", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

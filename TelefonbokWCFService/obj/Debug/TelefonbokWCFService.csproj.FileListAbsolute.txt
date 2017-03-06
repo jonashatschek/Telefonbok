@@ -1,0 +1,6 @@
+C:\Users\Jonas\Dropbox\Systemvetarprogrammet\Terminer\T6\Informationsinfrastruktur\Labbar\Inför labb2\Telefonbok\Telefonbok\TelefonbokWCFService\bin\TelefonbokWCFService.dll.config
+C:\Users\Jonas\Dropbox\Systemvetarprogrammet\Terminer\T6\Informationsinfrastruktur\Labbar\Inför labb2\Telefonbok\Telefonbok\TelefonbokWCFService\bin\TelefonbokWCFService.dll
+C:\Users\Jonas\Dropbox\Systemvetarprogrammet\Terminer\T6\Informationsinfrastruktur\Labbar\Inför labb2\Telefonbok\Telefonbok\TelefonbokWCFService\bin\TelefonbokWCFService.pdb
+C:\Users\Jonas\Dropbox\Systemvetarprogrammet\Terminer\T6\Informationsinfrastruktur\Labbar\Inför labb2\Telefonbok\Telefonbok\TelefonbokWCFService\obj\Debug\TelefonbokWCFService.dll
+C:\Users\Jonas\Dropbox\Systemvetarprogrammet\Terminer\T6\Informationsinfrastruktur\Labbar\Inför labb2\Telefonbok\Telefonbok\TelefonbokWCFService\obj\Debug\TelefonbokWCFService.pdb
+C:\Users\Jonas\Dropbox\Systemvetarprogrammet\Terminer\T6\Informationsinfrastruktur\Labbar\Inför labb2\Telefonbok\Telefonbok\TelefonbokWCFService\obj\Debug\TelefonbokWCFService.csprojResolveAssemblyReference.cache
